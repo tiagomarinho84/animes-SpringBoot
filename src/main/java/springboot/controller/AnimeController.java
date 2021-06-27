@@ -2,6 +2,7 @@ package springboot.controller;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -15,6 +16,7 @@ import java.util.List;
 @RestController
 @RequestMapping("animes")
 @Log4j2
+@Slf4j
 @RequiredArgsConstructor
 public class AnimeController {
 
@@ -23,12 +25,12 @@ public class AnimeController {
 
     @GetMapping
     public ResponseEntity<List<Anime>> list() {
-        log.info(dateUtil.formatLocalDateTimeDatabaseStyle(LocalDateTime.now()));
+        log.info(dateUtil.formatLocalDateTimeToDatabaseStyle(LocalDateTime.now()));
         return ResponseEntity.ok(animeService.listAll());
     }
 
     @GetMapping(path = "/{id}")
-    public ResponseEntity<Anime> findById(@PathVariable Long id) {
+    public ResponseEntity<Anime> findById(@PathVariable long id) {
         return ResponseEntity.ok(animeService.findById(id));
     }
 
@@ -38,7 +40,7 @@ public class AnimeController {
     }
 
     @DeleteMapping(path = "/{id}")
-    public ResponseEntity<Void> delete(@PathVariable Long id) {
+    public ResponseEntity<Void> delete(@PathVariable long id) {
         animeService.delete(id);
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
@@ -48,5 +50,4 @@ public class AnimeController {
         animeService.replace(anime);
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
-
 }

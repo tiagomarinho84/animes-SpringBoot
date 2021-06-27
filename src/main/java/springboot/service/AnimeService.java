@@ -11,7 +11,6 @@ import java.util.concurrent.ThreadLocalRandom;
 
 @Service
 public class AnimeService {
-
     private static List<Anime> animes;
 
     static {
@@ -23,21 +22,20 @@ public class AnimeService {
         return animes;
     }
 
-    public Anime findById(Long id) {
-        return animes
-                .stream()
+    public Anime findById(long id) {
+        return animes.stream()
                 .filter(anime -> anime.getId().equals(id))
                 .findFirst()
-                .orElseThrow(() -> new ResponseStatusException(HttpStatus.BAD_REQUEST, "Anime not found"));
+                .orElseThrow(() -> new ResponseStatusException(HttpStatus.BAD_REQUEST, "Anime not Found"));
     }
 
     public Anime save(Anime anime) {
-        anime.setId(ThreadLocalRandom.current().nextLong(3, 1000000));
+        anime.setId(ThreadLocalRandom.current().nextLong(3, 100000));
         animes.add(anime);
         return anime;
     }
 
-    public void delete(Long id) {
+    public void delete(long id) {
         animes.remove(findById(id));
     }
 
