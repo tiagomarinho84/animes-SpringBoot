@@ -1,6 +1,0 @@
-springboot\service\AnimeService.class
-springboot\repository\AnimeRepository.class
-springboot\util\DateUtil.class
-springboot\domain\Anime.class
-springboot\controller\AnimeController.class
-springboot\ApplicationStart.class
