@@ -1,0 +1,11 @@
+springboot\domain\Anime$AnimeBuilder.class
+springboot\service\AnimeService.class
+springboot\repository\AnimeRepository.class
+springboot\util\DateUtil.class
+springboot\requests\AnimePostRequestBody.class
+springboot\mapper\AnimeMapperImpl.class
+springboot\requests\AnimePutRequestBody.class
+springboot\mapper\AnimeMapper.class
+springboot\domain\Anime.class
+springboot\controller\AnimeController.class
+springboot\ApplicationStart.class
